@@ -1,0 +1,18 @@
+-high -noforcemaccel -noforcemspd -useforcedmparms +exec autoexec.cfg
+-map dota -console -fullscreen -nod3d9ex -high -noforcemaccel -noforcemspd -useforcedmparms +exec autoexec.cfg
+
+
+
+-enable_addons
+-map dota  // Loads the Dota 2 map right when you launch the game.
+-gl  //	Forces Dota to run on OpenGL. On Windows, the OpenGL DLC is necessary to run this.
+-d3d9ex
+-nod3d9ex  // Disables Windows Aero DirectX extensions; may improve performance in certain cases.
+-dx9  // Force run on DirectX 9
+-dx11 // Force run on DirectX 11
+-vulkan  //	Apply Vulkan support.
+-nogammaramp  // Forces Dota to use desktop color profile.
+-32bit  // Force run on 32bit client. (default 64bit)
+-antiaddiction_test //  Adds an uptime clock.
+-cursor_scale_percent # // Able to change cursor size. Default 100
+Source: http://dota2.gamepedia.com/Launch_Options

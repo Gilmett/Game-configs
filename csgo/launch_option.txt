@@ -1,0 +1,1 @@
+-novid -nod3d9ex -language textmod -high -noforcemaccel -noforcemspd -useforcedmparms +exec autoexec.cfg
