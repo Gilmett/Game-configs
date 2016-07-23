@@ -1,7 +1,7 @@
 chcp 1251 >nul
 @echo
  
-REM --- Отключение служб индексирования, слежения и сбора инфы для отправки ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ СЃР»СѓР¶Р± РёРЅРґРµРєСЃРёСЂРѕРІР°РЅРёСЏ, СЃР»РµР¶РµРЅРёСЏ Рё СЃР±РѕСЂР° РёРЅС„С‹ РґР»СЏ РѕС‚РїСЂР°РІРєРё ---
 net stop DiagTrack
 net stop diagnosticshub.standardcollector.service
 net stop dmwappushservice
@@ -14,7 +14,7 @@ sc config WMPNetworkSvc start= disabled
 sc config WSearch start= disabled
  
  
-REM --- Отключение телеметрии и сбора данных ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ С‚РµР»РµРјРµС‚СЂРёРё Рё СЃР±РѕСЂР° РґР°РЅРЅС‹С… ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v "PreventDeviceMetadataFromNetwork" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT" /v "DontOfferThroughWUAU" /t REG_DWORD /d 1 /f
@@ -27,11 +27,11 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\Auto
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger" /v "Start" /t REG_DWORD /d 0 /f
 DEL /p C:\ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl
 
-REM --- Частота формирования отзывов "Никогда" ---
+REM --- Р§Р°СЃС‚РѕС‚Р° С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ РѕС‚Р·С‹РІРѕРІ "РќРёРєРѕРіРґР°" ---
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f
 reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules" /v "PeriodInNanoSeconds" /f
 
-REM --- Отключение заданий в планировщике по сбору вашей информации для пересылки и др. ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ Р·Р°РґР°РЅРёР№ РІ РїР»Р°РЅРёСЂРѕРІС‰РёРєРµ РїРѕ СЃР±РѕСЂСѓ РІР°С€РµР№ РёРЅС„РѕСЂРјР°С†РёРё РґР»СЏ РїРµСЂРµСЃС‹Р»РєРё Рё РґСЂ. ---
 schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /Disable
 schtasks /Change /TN "Microsoft\Windows\Application Experience\AitAgent" /Disable
 schtasks /Change /TN "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /Disable
