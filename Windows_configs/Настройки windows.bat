@@ -1,13 +1,13 @@
 chcp 1251 >nul
 @echo
 
-REM --- Получать обновления только от Microsoft ---
-REM --- 0 = Только от Microsoft ---
-REM --- 1 = Получать от Microsoft и комп. в локальной сети ---
-REM --- 3 = Получать от Microsoft, комп. в локальной сети и комп. в интернете (как torrents) ---
+REM --- РџРѕР»СѓС‡Р°С‚СЊ РѕР±РЅРѕРІР»РµРЅРёСЏ С‚РѕР»СЊРєРѕ РѕС‚ Microsoft ---
+REM --- 0 = РўРѕР»СЊРєРѕ РѕС‚ Microsoft ---
+REM --- 1 = РџРѕР»СѓС‡Р°С‚СЊ РѕС‚ Microsoft Рё РєРѕРјРї. РІ Р»РѕРєР°Р»СЊРЅРѕР№ СЃРµС‚Рё ---
+REM --- 3 = РџРѕР»СѓС‡Р°С‚СЊ РѕС‚ Microsoft, РєРѕРјРї. РІ Р»РѕРєР°Р»СЊРЅРѕР№ СЃРµС‚Рё Рё РєРѕРјРї. РІ РёРЅС‚РµСЂРЅРµС‚Рµ (РєР°Рє torrents) ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /t REG_DWORD /d 0 /f
 
-REM --- Отключение Автоматического обновления Windows (включение уведомлений об установке и перезагрузки)---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРіРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ Windows (РІРєР»СЋС‡РµРЅРёРµ СѓРІРµРґРѕРјР»РµРЅРёР№ РѕР± СѓСЃС‚Р°РЅРѕРІРєРµ Рё РїРµСЂРµР·Р°РіСЂСѓР·РєРё)---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "AUOptions" /t REG_DWORD /d 2 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "AutoInstallMinorUpdates" /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "EnableFeaturedSoftware" /t REG_DWORD /d 1 /f
@@ -16,39 +16,39 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "ScheduledInstallDay" /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "ScheduledInstallTime" /t REG_DWORD /d 12 /f
 
-REM --- Отключение Cortana ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ Cortana ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "AllowCortana" /t REG_DWORD /d 0 /f
 
-REM --- Отключение Дефендера ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ Р”РµС„РµРЅРґРµСЂР° ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t REG_DWORD /d 1 /f
 
-REM --- Запретить подключения удаленного помошника ---
+REM --- Р—Р°РїСЂРµС‚РёС‚СЊ РїРѕРґРєР»СЋС‡РµРЅРёСЏ СѓРґР°Р»РµРЅРЅРѕРіРѕ РїРѕРјРѕС€РЅРёРєР° ---
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Remote Assistance" /v "fAllowToGetHelp" /t REG_DWORD /d 0 /f
 
-REM --- Отключить SmartScreen, отключится и его проверка центром безопасность и обслуживание ---
+REM --- РћС‚РєР»СЋС‡РёС‚СЊ SmartScreen, РѕС‚РєР»СЋС‡РёС‚СЃСЏ Рё РµРіРѕ РїСЂРѕРІРµСЂРєР° С†РµРЅС‚СЂРѕРј Р±РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ Рё РѕР±СЃР»СѓР¶РёРІР°РЅРёРµ ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v "EnableSmartScreen" /t REG_DWORD /d 0 /f
 
-REM --- Отключить отправку отчетов об ошибках: ---
+REM --- РћС‚РєР»СЋС‡РёС‚СЊ РѕС‚РїСЂР°РІРєСѓ РѕС‚С‡РµС‚РѕРІ РѕР± РѕС€РёР±РєР°С…: ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v "Disabled" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v "DontSendAdditionalData" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting" /v "DoReport" /t REG_DWORD /d 0 /f
 
-REM --- Отключить анализ и отправку данных "PerfTrack" через SQM  ---
+REM --- РћС‚РєР»СЋС‡РёС‚СЊ Р°РЅР°Р»РёР· Рё РѕС‚РїСЂР°РІРєСѓ РґР°РЅРЅС‹С… "PerfTrack" С‡РµСЂРµР· SQM  ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d}" /v "ScenarioExecutionEnabled" /t REG_DWORD /d 0 /f
 
-REM --- Отключить средство диагностики "MSDT" для технической поддержки  ---
+REM --- РћС‚РєР»СЋС‡РёС‚СЊ СЃСЂРµРґСЃС‚РІРѕ РґРёР°РіРЅРѕСЃС‚РёРєРё "MSDT" РґР»СЏ С‚РµС…РЅРёС‡РµСЃРєРѕР№ РїРѕРґРґРµСЂР¶РєРё  ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI\{C295FBBA-FD47-46ac-8BEE-B1715EC634E5}" /v "ScenarioExecutionEnabled" /t REG_DWORD /d 0 /f
 
-REM --- Отключить сбор, обучение и персонализацию ввода набираемых текстов: ---
+REM --- РћС‚РєР»СЋС‡РёС‚СЊ СЃР±РѕСЂ, РѕР±СѓС‡РµРЅРёРµ Рё РїРµСЂСЃРѕРЅР°Р»РёР·Р°С†РёСЋ РІРІРѕРґР° РЅР°Р±РёСЂР°РµРјС‹С… С‚РµРєСЃС‚РѕРІ: ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization" /v "RestrictImplicitTextCollection" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization" /v "RestrictImplicitInkCollection" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization" /v "AllowInputPersonalization" /t REG_DWORD /d 0 /f
 
-REM --- Отключить синхронизацию: ---
+REM --- РћС‚РєР»СЋС‡РёС‚СЊ СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЋ: ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /v "DisableSettingSync" /t REG_DWORD /d 2 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /v "DisableSettingSyncUserOverride" /t REG_DWORD /d 1 /f
 
-REM --- Отключение синхронизации персональных настроек программ и Windows ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёРё РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РЅР°СЃС‚СЂРѕРµРє РїСЂРѕРіСЂР°РјРј Рё Windows ---
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync" /v "SyncPolicy" /t REG_DWORD /d 5 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization" /v "Enabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings" /v "Enabled" /t REG_DWORD /d 0 /f
@@ -57,7 +57,7 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows" /v "Enabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language" /v "Enabled" /t REG_DWORD /d 0 /f
 
-REM --- Полное отключение OneDrive ---
+REM --- РџРѕР»РЅРѕРµ РѕС‚РєР»СЋС‡РµРЅРёРµ OneDrive ---
 TASKKILL /F /IM OneDrive.exe /T
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /v "DisableFileSyncNGSC" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /v "DisableLibrariesDefaultSaveToOneDrive" /t REG_DWORD /d 1 /f
@@ -71,75 +71,75 @@ reg add "HKEY_CURRENT_USER\Software\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE
 reg add "HKEY_CURRENT_USER\Software\Classes\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v "System.IsPinnedToNameSpaceTree" /t REG_DWORD /d 0 /f
 reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "OneDrive" /f
 
-REM --- Отключить автопередачю паролей к своим WiFi на сервер Microsoft ---
+REM --- РћС‚РєР»СЋС‡РёС‚СЊ Р°РІС‚РѕРїРµСЂРµРґР°С‡СЋ РїР°СЂРѕР»РµР№ Рє СЃРІРѕРёРј WiFi РЅР° СЃРµСЂРІРµСЂ Microsoft ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots" /v "value"/t REG_DWORD /d 0 /f
 
-REM --- Открытие проводника на разделе "Этот компьютер" ---
-REM --- 1 = Этот компьютер, 2 = Панель быстрого доступа ---
+REM --- РћС‚РєСЂС‹С‚РёРµ РїСЂРѕРІРѕРґРЅРёРєР° РЅР° СЂР°Р·РґРµР»Рµ "Р­С‚РѕС‚ РєРѕРјРїСЊСЋС‚РµСЂ" ---
+REM --- 1 = Р­С‚РѕС‚ РєРѕРјРїСЊСЋС‚РµСЂ, 2 = РџР°РЅРµР»СЊ Р±С‹СЃС‚СЂРѕРіРѕ РґРѕСЃС‚СѓРїР° ---
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
 
-REM --- Отображение значка "Этот компьютер" на рабочем столе ---
-REM --- 0 = Включить, 1 = Скрыть ---
+REM --- РћС‚РѕР±СЂР°Р¶РµРЅРёРµ Р·РЅР°С‡РєР° "Р­С‚РѕС‚ РєРѕРјРїСЊСЋС‚РµСЂ" РЅР° СЂР°Р±РѕС‡РµРј СЃС‚РѕР»Рµ ---
+REM --- 0 = Р’РєР»СЋС‡РёС‚СЊ, 1 = РЎРєСЂС‹С‚СЊ ---
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /v "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" /t REG_DWORD /d 0 /f
 
-REM --- Изменение задержки всплывающих уведомлений панели задач на 10 секунд ---
+REM --- РР·РјРµРЅРµРЅРёРµ Р·Р°РґРµСЂР¶РєРё РІСЃРїР»С‹РІР°СЋС‰РёС… СѓРІРµРґРѕРјР»РµРЅРёР№ РїР°РЅРµР»Рё Р·Р°РґР°С‡ РЅР° 10 СЃРµРєСѓРЅРґ ---
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ExtendedUIHoverTime" /t REG_DWORD /d "10000" /f 
 
-REM --- Отключение залипания клавиши SHIFT после 5 нажатий ---
-REM --- 506 = Выкл, 510 = Включить (По умолчанию) ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ Р·Р°Р»РёРїР°РЅРёСЏ РєР»Р°РІРёС€Рё SHIFT РїРѕСЃР»Рµ 5 РЅР°Р¶Р°С‚РёР№ ---
+REM --- 506 = Р’С‹РєР», 510 = Р’РєР»СЋС‡РёС‚СЊ (РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) ---
 reg add "HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys" /v "Flags" /t REG_SZ /d "506" /f
 
-REM --- Отображать скрытые файлы и папки в проводнике ---
+REM --- РћС‚РѕР±СЂР°Р¶Р°С‚СЊ СЃРєСЂС‹С‚С‹Рµ С„Р°Р№Р»С‹ Рё РїР°РїРєРё РІ РїСЂРѕРІРѕРґРЅРёРєРµ ---
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f
 
-REM --- Включаем "NumLock" у всех, в том числе для Логин-Скрина (1 строка) ---
+REM --- Р’РєР»СЋС‡Р°РµРј "NumLock" Сѓ РІСЃРµС…, РІ С‚РѕРј С‡РёСЃР»Рµ РґР»СЏ Р›РѕРіРёРЅ-РЎРєСЂРёРЅР° (1 СЃС‚СЂРѕРєР°) ---
 reg add "HKEY_USERS\.DEFAULT\Control Panel\Keyboard" /v "InitialKeyboardIndicators" /t REG_SZ /d 2 /f
 reg add "HKEY_USERS\S-1-5-18\Control Panel\Keyboard" /v "InitialKeyboardIndicators" /t REG_SZ /d 2 /f
 reg add "HKEY_USERS\S-1-5-19\Control Panel\Keyboard" /v "InitialKeyboardIndicators" /t REG_SZ /d 2 /f
 reg add "HKEY_USERS\S-1-5-20\Control Panel\Keyboard" /v "InitialKeyboardIndicators" /t REG_SZ /d 2 /f
 reg add "HKEY_CURRENT_USER\Control Panel\Keyboard" /v "InitialKeyboardIndicators" /t REG_SZ /d 2 /f
 
-REM --- Задача анализирования энергопотребления системы ---
+REM --- Р—Р°РґР°С‡Р° Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёСЏ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ СЃРёСЃС‚РµРјС‹ ---
 schtasks /Change /TN "Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /Disable
 
-REM --- Задача отправки отчетов об ошибках ---
+REM --- Р—Р°РґР°С‡Р° РѕС‚РїСЂР°РІРєРё РѕС‚С‡РµС‚РѕРІ РѕР± РѕС€РёР±РєР°С… ---
 schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable
 
-REM --- Отключение поиска из таскбара через поисковик BING и Кортаной ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ РїРѕРёСЃРєР° РёР· С‚Р°СЃРєР±Р°СЂР° С‡РµСЂРµР· РїРѕРёСЃРєРѕРІРёРє BING Рё РљРѕСЂС‚Р°РЅРѕР№ ---
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "CortanaEnabled" /t REG_DWORD /d 0 /f
 
-REM --- Отключение поиска в сети из таскбара ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ РїРѕРёСЃРєР° РІ СЃРµС‚Рё РёР· С‚Р°СЃРєР±Р°СЂР° ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "DisableWebSearch" /t REG_DWORD /d 1 /f
 
-REM --- Задачи Обслуживания памяти во время простоя и при ошибках ---
+REM --- Р—Р°РґР°С‡Рё РћР±СЃР»СѓР¶РёРІР°РЅРёСЏ РїР°РјСЏС‚Рё РІРѕ РІСЂРµРјСЏ РїСЂРѕСЃС‚РѕСЏ Рё РїСЂРё РѕС€РёР±РєР°С… ---
 schtasks /Change /TN "Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents" /Disable
 schtasks /Change /TN "Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic" /Disable
 
-REM --- Задача измеряет быстродействие и возможности системы ---
+REM --- Р—Р°РґР°С‡Р° РёР·РјРµСЂСЏРµС‚ Р±С‹СЃС‚СЂРѕРґРµР№СЃС‚РІРёРµ Рё РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЃРёСЃС‚РµРјС‹ ---
 schtasks /Change /TN "Microsoft\Windows\Maintenance\WinSAT" /Disable
 
-REM --- Задача очистки системного диска во время простоя (задолбала постоянно насиловать диск) ---
+REM --- Р—Р°РґР°С‡Р° РѕС‡РёСЃС‚РєРё СЃРёСЃС‚РµРјРЅРѕРіРѕ РґРёСЃРєР° РІРѕ РІСЂРµРјСЏ РїСЂРѕСЃС‚РѕСЏ (Р·Р°РґРѕР»Р±Р°Р»Р° РїРѕСЃС‚РѕСЏРЅРЅРѕ РЅР°СЃРёР»РѕРІР°С‚СЊ РґРёСЃРє) ---
 schtasks /Change /TN "Microsoft\Windows\DiskCleanup\SilentCleanup" /Disable
 
-REM --- Задача оценки объема использования диска ---
+REM --- Р—Р°РґР°С‡Р° РѕС†РµРЅРєРё РѕР±СЉРµРјР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РґРёСЃРєР° ---
 schtasks /Change /TN "Microsoft\Windows\DiskFootprint\Diagnostics" /Disable
 
-REM --- Отключить доступ в интернет службе защиты аудио - Windows Media Digital Rights Management (DRM) ---
+REM --- РћС‚РєР»СЋС‡РёС‚СЊ РґРѕСЃС‚СѓРї РІ РёРЅС‚РµСЂРЅРµС‚ СЃР»СѓР¶Р±Рµ Р·Р°С‰РёС‚С‹ Р°СѓРґРёРѕ - Windows Media Digital Rights Management (DRM) ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WMDRM" /v "DisableOnline" /t REG_DWORD /d 1 /f
 
-REM --- Отключение определения вашего расположения для AppStore и Других программ (Геозона)---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ РѕРїСЂРµРґРµР»РµРЅРёСЏ РІР°С€РµРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РґР»СЏ AppStore Рё Р”СЂСѓРіРёС… РїСЂРѕРіСЂР°РјРј (Р“РµРѕР·РѕРЅР°)---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /v "DisableLocation" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /v "DisableWindowsLocationProvider" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /v "DisableLocationScripting" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /v "DisableSensors" /t REG_DWORD /d 1 /f
 
-REM --- Отображать расширения файлов в проводнике ---
-REM --- 0 = Отображать ---
-REM --- 1 = Скрывать ---
+REM --- РћС‚РѕР±СЂР°Р¶Р°С‚СЊ СЂР°СЃС€РёСЂРµРЅРёСЏ С„Р°Р№Р»РѕРІ РІ РїСЂРѕРІРѕРґРЅРёРєРµ ---
+REM --- 0 = РћС‚РѕР±СЂР°Р¶Р°С‚СЊ ---
+REM --- 1 = РЎРєСЂС‹РІР°С‚СЊ ---
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f
 
-REM --- Отключение отображения вкладки "предыдущие версии" в свойствах файлов по ПКМ меню ---
+REM --- РћС‚РєР»СЋС‡РµРЅРёРµ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РІРєР»Р°РґРєРё "РїСЂРµРґС‹РґСѓС‰РёРµ РІРµСЂСЃРёРё" РІ СЃРІРѕР№СЃС‚РІР°С… С„Р°Р№Р»РѕРІ РїРѕ РџРљРњ РјРµРЅСЋ ---
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "NoPreviousVersionsPage" /t REG_DWORD /d 1 /f
 
 @pause
