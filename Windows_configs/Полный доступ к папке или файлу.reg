@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+ 
+[HKEY_CLASSES_ROOT\*\shell\runas]
+@="Стать владельцем и задать полный доступ к объекту"
+"NoWorkingDirectory"=""
+ 
+[HKEY_CLASSES_ROOT\*\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant администраторы:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant администраторы:F"
+ 
+[HKEY_CLASSES_ROOT\Directory\shell\runas]
+@="Стать владельцем и задать полный доступ к объекту"
+"NoWorkingDirectory"=""
+ 
+[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant администраторы:F /t"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant администраторы:F /t"
